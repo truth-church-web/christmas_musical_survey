@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎄 2025 聖誕音樂劇籌備參與意願調查</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, #0f2c1f 0%, #1a3a2a 50%, #2b1215 100%);
+            min-height: 100vh;
+        }
+        .festive-shadow {
+            box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.15), 0 8px 10px -6px rgba(16, 185, 129, 0.15);
+        }
+        .calendar-cell {
+            min-height: 85px;
+        }
+        .rehearsal-checkbox:checked + div {
+            background-color: #10b981;
+            color: #ffffff;
+            border-color: #059669;
+        }
+        .rehearsal-checkbox:checked + div .check-icon {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="text-slate-800 py-8 px-3 sm:px-6 lg:px-8">
+
+    <!-- Main Wrapper -->
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- Header Card -->
+        <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-10 mb-8 festive-shadow border-2 border-red-200 text-center relative overflow-hidden">
+            <div class="absolute -top-10 -left-10 w-32 h-32 bg-red-100 rounded-full opacity-50 blur-xl pointer-events-none"></div>
+            <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-emerald-100 rounded-full opacity-50 blur-xl pointer-events-none"></div>
+
+            <div class="inline-flex items-center justify-center p-3 bg-red-50 text-red-600 rounded-2xl mb-4 text-2xl shadow-inner">
+                <i class="fa-solid fa-tree text-emerald-600 mr-2"></i>
+                <i class="fa-solid fa-gift text-red-600"></i>
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mb-3">
+                🎄 2025 聖誕音樂劇籌備參與意願調查
+            </h1>
+            <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
+                感謝你願意一同投入這場充滿恩典與喜樂的聖誕音樂劇！請撥空填寫以下調查，幫助我們順利安排聚會與練團時間。
+            </p>
+
+            <!-- Admin Button -->
+            <div class="mt-6 flex justify-center">
+                <button type="button" onclick="openAdminModal()" class="inline-flex items-center text-xs sm:text-sm font-medium text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2 rounded-xl transition border border-emerald-200">
+                    <i class="fa-solid fa-chart-pie mr-2"></i> 主辦人專區：查看所有回覆
+                </button>
+            </div>
+        </div>
+
+        <!-- Survey Form -->
+        <form id="surveyForm" class="space-y-6">
+            
+            <!-- Section 1: Basic Info (Name & Phone) -->
+            <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 festive-shadow border border-slate-100">
+                <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-600 text-white inline-flex items-center justify-center text-sm mr-3 font-semibold shadow">1</span>
+                    基本資料
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">姓名 <span class="text-red-500">*</span></label>
+                        <input type="text" id="userName" required placeholder="例如：王小明" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition text-sm bg-slate-50/50">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">聯絡電話 <span class="text-red-500">*</span></label>
+                        <input type="tel" id="userPhone" required placeholder="例如：0912345678" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition text-sm bg-slate-50/50">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Session 1 (12/13, 12/14) -->
+            <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 festive-shadow border border-slate-100">
+                <h2 class="text-lg font-bold text-slate-900 mb-2 flex items-center">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-600 text-white inline-flex items-center justify-center text-sm mr-3 font-semibold shadow">2</span>
+                    活動當日調查（12/13 - 12/14）
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-500 mb-4 ml-0 sm:ml-11">
+                    包含 12/13 (17:30-21:00)、12/14 (08:00-16:00) 共三場聚會。
+                </p>
+                <div class="space-y-3 pl-0 sm:pl-11">
+                    <label class="flex items-start p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="session1" value="all" required class="mt-1 text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                        <span class="ml-3 text-sm text-slate-800 font-medium">我三場都能參加</span>
+                    </label>
+                    <label class="flex items-start p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="session1" value="13_only" class="mt-1 text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                        <span class="ml-3 text-sm text-slate-800 font-medium">我只有 12/13 的一場能參加</span>
+                    </label>
+                    <label class="flex items-start p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="session1" value="14_only" class="mt-1 text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                        <span class="ml-3 text-sm text-slate-800 font-medium">我只有 12/14 的兩場能參加</span>
+                    </label>
+                    <label class="flex items-start p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="session1" value="none" class="mt-1 text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                        <span class="ml-3 text-sm text-slate-800 font-medium">我都不行參加</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Section 3: Session 2 (12/20, 12/21) -->
+            <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 festive-shadow border border-slate-100">
+                <h2 class="text-lg font-bold text-slate-900 mb-2 flex items-center">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-600 text-white inline-flex items-center justify-center text-sm mr-3 font-semibold shadow">3</span>
+                    活動當日調查（12/20 - 12/21）
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-500 mb-4 ml-0 sm:ml-11">
+                    包含 12/20 (17:30-21:00)、12/21 (08:00-16:00) 共三場聚會。
+                </p>
+                <div class="space-y-3 pl-0 sm:pl-11">
+                    <label class="flex items-start p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="session2" value="all" required class="mt-1 text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                        <span class="ml-3 text-sm text-slate-800 font-medium">我三場都能參加</span>
+                    </label>
+                    <label class="flex items-start p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="session2" value="20_only" class="mt-1 text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                        <span class="ml-3 text-sm text-slate-800 font-medium">我只有 12/20 的一場能參加</span>
+                    </label>
+                    <label class="flex items-start p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="session2" value="21_only" class="mt-1 text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                        <span class="ml-3 text-sm text-slate-800 font-medium">我只有 12/21 的兩場能參加</span>
+                    </label>
+                    <label class="flex items-start p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="session2" value="none" class="mt-1 text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                        <span class="ml-3 text-sm text-slate-800 font-medium">我都不行參加</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Section 4: Calendar-view Rehearsal Time Survey -->
+            <div id="rehearsalSection" class="hidden bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 festive-shadow border border-emerald-200 transition-all duration-300">
+                <div class="flex items-center mb-2">
+                    <span class="w-8 h-8 rounded-xl bg-red-600 text-white inline-flex items-center justify-center text-sm mr-3 font-semibold shadow">4</span>
+                    <h2 class="text-lg font-bold text-slate-900">練團時間調查 (日曆模式)</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 mb-6 ml-0 sm:ml-11">
+                    點擊日曆中有開放練習時段的日期區塊以進行勾選/取消：
+                </p>
+
+                <!-- Calendar Wrapper -->
+                <div id="calendarContainer" class="space-y-8 pl-0 sm:pl-11">
+                    <!-- Dynamic Month Calendars rendered by JS -->
+                </div>
+            </div>
+
+            <!-- Section 5: Remarks -->
+            <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 festive-shadow border border-slate-100">
+                <h2 class="text-lg font-bold text-slate-900 mb-3 flex items-center">
+                    <span class="w-8 h-8 rounded-xl bg-slate-700 text-white inline-flex items-center justify-center text-sm mr-3 font-semibold shadow">5</span>
+                    備註 <span class="text-slate-400 font-normal text-sm ml-1">(選填)</span>
+                </h2>
+                <textarea id="remarks" rows="3" placeholder="有任何特殊狀況、請假時間或其他想告訴同工的話嗎？" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition text-sm bg-slate-50/50 resize-none"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center pt-2 pb-12">
+                <button type="submit" id="submitBtn" class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-red-600 to-emerald-700 hover:from-red-700 hover:to-emerald-800 text-white font-bold rounded-2xl shadow-lg transition transform active:scale-95 text-base flex items-center justify-center mx-auto">
+                    <i class="fa-solid fa-paper-plane mr-2"></i> 確認送出回覆
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- Admin Modal -->
+    <div id="adminModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200">
+            <!-- Modal Header -->
+            <div class="p-6 bg-slate-900 text-white flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-emerald-600 rounded-xl">
+                        <i class="fa-solid fa-clipboard-list text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold">回覆管理列表</h3>
+                        <p class="text-xs text-slate-400" id="submissionCountText">載入中...</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white p-2 rounded-xl transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto flex-1 bg-slate-50">
+                <div id="loadingSubmissions" class="text-center py-12 text-slate-500">
+                    <i class="fa-solid fa-spinner fa-spin text-2xl mb-2 text-emerald-600"></i>
+                    <p class="text-sm">正在載入所有回覆資料...</p>
+                </div>
+                <div id="submissionsList" class="space-y-4 hidden">
+                    <!-- Cards will be populated here -->
+                </div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="p-4 bg-white border-t border-slate-200 flex justify-end">
+                <button onclick="closeAdminModal()" class="px-5 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium rounded-xl text-sm transition">
+                    關閉
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Alert / Modal -->
+    <div id="customModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl border border-slate-100">
+            <div id="modalIcon" class="w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"></div>
+            <h3 id="modalTitle" class="text-lg font-bold text-slate-900 mb-2">提示</h3>
+            <p id="modalMessage" class="text-sm text-slate-600 mb-6 leading-relaxed"></p>
+            <button onclick="closeCustomModal()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl transition text-sm">
+                確定
+            </button>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, getDocs, query } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'christmas-musical-survey-2025';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+            apiKey: "dummy-key",
+            authDomain: "dummy.firebaseapp.com",
+            projectId: "dummy-project",
+            storageBucket: "dummy.appspot.com",
+            messagingSenderId: "000000000000",
+            appId: "1:00000000:web:000000000"
+        };
+
+        let db, auth;
+
+        try {
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+
+            const initAuth = async () => {
+                try {
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                } catch (e) {
+                    console.error("Auth error:", e);
+                }
+            };
+            initAuth();
+        } catch (e) {
+            console.error("Firebase init error:", e);
+        }
+
+        // Complete list of rehearsal slots with structured date information
+        // Base rehearsals: 11/15 to 12/13
+        // Extra rehearsals for 12/20-21 selection: 12/15 & 12/17
+        const rehearsalSlots = [
+            { id: '11-15', month: 11, day: 15, weekday: 0, label: '11/15(日)', time: '16-18', isExtra: false },
+            { id: '11-17', month: 11, day: 17, weekday: 2, label: '11/17(二)', time: '19-21', isExtra: false },
+            { id: '11-19', month: 11, day: 19, weekday: 4, label: '11/19(四)', time: '19-21', isExtra: false },
+            { id: '11-22', month: 11, day: 22, weekday: 0, label: '11/22(日)', time: '16-18', isExtra: false },
+            { id: '11-24', month: 11, day: 24, weekday: 2, label: '11/24(二)', time: '19-21', isExtra: false },
+            { id: '11-26', month: 11, day: 26, weekday: 4, label: '11/26(四)', time: '19-21', isExtra: false },
+            { id: '11-29', month: 11, day: 29, weekday: 0, label: '11/29(日)', time: '16-18', isExtra: false },
+            { id: '12-01', month: 12, day: 1,  weekday: 2, label: '12/01(二)', time: '19-21', isExtra: false },
+            { id: '12-03', month: 12, day: 3,  weekday: 4, label: '12/03(四)', time: '19-21', isExtra: false },
+            { id: '12-06', month: 12, day: 6,  weekday: 0, label: '12/06(日)', time: '16-18', isExtra: false },
+            { id: '12-08', month: 12, day: 8,  weekday: 2, label: '12/08(二)', time: '19-21', isExtra: false },
+            { id: '12-10', month: 12, day: 10, weekday: 4, label: '12/10(四)', time: '19-21', isExtra: false },
+            { id: '12-13', month: 12, day: 13, weekday: 0, label: '12/13(日)', time: '16-18', isExtra: false },
+            { id: '12-15', month: 12, day: 15, weekday: 2, label: '12/15(二)', time: '19-21', isExtra: true },
+            { id: '12-17', month: 12, day: 17, weekday: 4, label: '12/17(四)', time: '19-21', isExtra: true }
+        ];
+
+        const session1Inputs = document.querySelectorAll('input[name="session1"]');
+        const session2Inputs = document.querySelectorAll('input[name="session2"]');
+        const rehearsalSection = document.getElementById('rehearsalSection');
+        const calendarContainer = document.getElementById('calendarContainer');
+        const surveyForm = document.getElementById('surveyForm');
+
+        function updateRehearsalDisplay() {
+            const s1Selected = document.querySelector('input[name="session1"]:checked');
+            const s2Selected = document.querySelector('input[name="session2"]:checked');
+
+            const s1CanAttend = s1Selected && s1Selected.value !== 'none';
+            const s2CanAttend = s2Selected && s2Selected.value !== 'none';
+
+            if (s1CanAttend || s2CanAttend) {
+                rehearsalSection.classList.remove('hidden');
+                
+                // If s2CanAttend is true (user selected any option on 12/20-21 except 'none'),
+                // include ALL base rehearsals + extra (12/15, 12/17).
+                // If only s1CanAttend is true, show base rehearsals (11/15 to 12/13).
+                const includeExtra = s2CanAttend;
+                renderMonthlyCalendars(includeExtra);
+            } else {
+                rehearsalSection.classList.add('hidden');
+                calendarContainer.innerHTML = '';
+            }
+        }
+
+        // Render 7-column monthly calendars for November and December
+        function renderMonthlyCalendars(includeExtra) {
+            // Keep existing user checks
+            const checkedValues = Array.from(document.querySelectorAll('input[name="rehearsal"]:checked')).map(el => el.value);
+
+            calendarContainer.innerHTML = '';
+
+            // Generate November 2025 Calendar
+            const novCalendar = createCalendarGrid(2025, 11, "2025 年 11 月", includeExtra, checkedValues);
+            // Generate December 2025 Calendar
+            const decCalendar = createCalendarGrid(2025, 12, "2025 年 12 月", includeExtra, checkedValues);
+
+            calendarContainer.appendChild(novCalendar);
+            calendarContainer.appendChild(decCalendar);
+        }
+
+        function createCalendarGrid(year, month, title, includeExtra, checkedValues) {
+            const wrapper = document.createElement('div');
+            wrapper.className = "bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200";
+
+            const header = document.createElement('div');
+            header.className = "font-bold text-slate-800 text-base mb-3 flex items-center";
+            header.innerHTML = `<i class="fa-regular fa-calendar-days text-emerald-600 mr-2"></i> ${title}`;
+            wrapper.appendChild(header);
+
+            const grid = document.createElement('div');
+            grid.className = "grid grid-cols-7 gap-1 sm:gap-2 text-center text-xs";
+
+            // Weekday Headers (Sun-Sat: 0-6)
+            const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+            weekDays.forEach((day, idx) => {
+                const dayHeader = document.createElement('div');
+                dayHeader.className = `font-bold py-1.5 rounded-lg ${idx === 0 || idx === 6 ? 'text-red-600 bg-red-50/60' : 'text-slate-600 bg-slate-200/50'}`;
+                dayHeader.textContent = day;
+                grid.appendChild(dayHeader);
+            });
+
+            // Calculate start day of week and total days in month
+            const firstDayIndex = new Date(year, month - 1, 1).getDay(); // 0 = Sun
+            const totalDays = new Date(year, month, 0).getDate();
+
+            // Empty cells before month starts
+            for (let i = 0; i < firstDayIndex; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = "bg-slate-100/40 rounded-xl opacity-30 border border-transparent";
+                grid.appendChild(emptyCell);
+            }
+
+            // Fill days of the month
+            for (let day = 1; day <= totalDays; day++) {
+                const cell = document.createElement('div');
+                cell.className = "calendar-cell rounded-xl border border-slate-200/70 p-1 flex flex-col justify-between bg-white transition hover:border-slate-300";
+
+                const dateNum = document.createElement('div');
+                dateNum.className = "text-right font-medium text-slate-400 text-[10px] sm:text-xs pr-1";
+                dateNum.textContent = day;
+                cell.appendChild(dateNum);
+
+                // Check if this date has a rehearsal slot
+                const slot = rehearsalSlots.find(s => s.month === month && s.day === day);
+
+                if (slot && (!slot.isExtra || includeExtra)) {
+                    // Valid slot to select
+                    const isChecked = checkedValues.includes(slot.label) ? 'checked' : '';
+                    const slotContainer = document.createElement('label');
+                    slotContainer.className = "cursor-pointer block mt-auto";
+                    slotContainer.innerHTML = `
+                        <input type="checkbox" name="rehearsal" value="${slot.label}" ${isChecked} class="sr-only rehearsal-checkbox">
+                        <div class="px-1 py-1.5 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-800 transition flex flex-col items-center justify-center space-y-0.5">
+                            <span class="font-bold text-[10px] sm:text-xs flex items-center">
+                                <i class="fa-solid fa-check check-icon hidden text-white text-[9px] mr-0.5"></i>
+                                ${slot.time}
+                            </span>
+                            <span class="text-[9px] opacity-75 hidden sm:inline">可練習</span>
+                        </div>
+                    `;
+                    cell.appendChild(slotContainer);
+                    cell.classList.add('bg-emerald-50/20', 'border-emerald-200/80');
+                } else {
+                    // Normal non-rehearsal day cell
+                    const placeholder = document.createElement('div');
+                    placeholder.className = "h-full";
+                    cell.appendChild(placeholder);
+                }
+
+                grid.appendChild(cell);
+            }
+
+            wrapper.appendChild(grid);
+            return wrapper;
+        }
+
+        session1Inputs.forEach(input => input.addEventListener('change', updateRehearsalDisplay));
+        session2Inputs.forEach(input => input.addEventListener('change', updateRehearsalDisplay));
+
+        // Submit Logic
+        surveyForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('userName').value.trim();
+            const phone = document.getElementById('userPhone').value.trim();
+            const session1 = document.querySelector('input[name="session1"]:checked')?.value;
+            const session2 = document.querySelector('input[name="session2"]:checked')?.value;
+            const remarks = document.getElementById('remarks').value.trim();
+
+            const rehearsals = Array.from(document.querySelectorAll('input[name="rehearsal"]:checked')).map(el => el.value);
+
+            if (!name || !phone || !session1 || !session2) {
+                showCustomModal('填寫未完整', '請填寫姓名、聯絡電話並完成活動當日場次的選擇！', 'error');
+                return;
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> 提交中...`;
+
+            try {
+                if (!auth || !auth.currentUser) {
+                    throw new Error("尚未完成身份驗證，請稍候再試");
+                }
+
+                const docData = {
+                    name,
+                    phone,
+                    session1,
+                    session2,
+                    rehearsals,
+                    remarks: remarks || '',
+                    createdAt: new Date().toISOString(),
+                    userId: auth.currentUser.uid
+                };
+
+                const responsesRef = collection(db, 'artifacts', appId, 'public', 'data', 'responses');
+                await addDoc(responsesRef, docData);
+
+                showCustomModal('提交成功！', '感謝您的回覆！願上帝賜福您的擺上與參與。', 'success');
+                surveyForm.reset();
+                rehearsalSection.classList.add('hidden');
+            } catch (err) {
+                console.error("Error saving response:", err);
+                showCustomModal('提交失敗', '儲存資料時發生錯誤：' + err.message, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane mr-2"></i> 確認送出回覆`;
+            }
+        });
+
+        // Admin Modal Functions
+        window.openAdminModal = async function() {
+            const modal = document.getElementById('adminModal');
+            const listDiv = document.getElementById('submissionsList');
+            const loadingDiv = document.getElementById('loadingSubmissions');
+            const countText = document.getElementById('submissionCountText');
+
+            modal.classList.remove('hidden');
+            listDiv.classList.add('hidden');
+            loadingDiv.classList.remove('hidden');
+
+            try {
+                if (!db) throw new Error("資料庫未初始化");
+
+                const responsesRef = collection(db, 'artifacts', appId, 'public', 'data', 'responses');
+                const snapshot = await getDocs(query(responsesRef));
+
+                let docs = [];
+                snapshot.forEach(doc => docs.push({ id: doc.id, ...doc.data() }));
+
+                docs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+                countText.textContent = `總共收到 ${docs.length} 筆回覆`;
+                loadingDiv.classList.add('hidden');
+                listDiv.classList.remove('hidden');
+
+                if (docs.length === 0) {
+                    listDiv.innerHTML = `
+                        <div class="text-center py-12 bg-white rounded-2xl border border-slate-200">
+                            <i class="fa-regular fa-folder-open text-4xl text-slate-300 mb-3"></i>
+                            <p class="text-slate-500 text-sm">目前還沒有人提交回覆。</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const sessionTextMap = {
+                    'all': '三場都能參加',
+                    '13_only': '只有 12/13 的一場',
+                    '14_only': '只有 12/14 的兩場',
+                    '20_only': '只有 12/20 的一場',
+                    '21_only': '只有 12/21 的兩場',
+                    'none': '無法參加'
+                };
+
+                listDiv.innerHTML = docs.map(item => `
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                        <div class="flex flex-wrap justify-between items-start gap-2">
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-base">${escapeHtml(item.name)} 
+                                    <span class="ml-2 px-2.5 py-0.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-full border border-slate-200"><i class="fa-solid fa-phone text-[10px] mr-1"></i>${escapeHtml(item.phone)}</span>
+                                </h4>
+                            </div>
+                            <span class="text-xs text-slate-400">${new Date(item.createdAt).toLocaleString('zh-TW')}</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600 bg-slate-50 p-3 rounded-xl">
+                            <div><strong>12/13-14 場次：</strong> ${sessionTextMap[item.session1] || item.session1}</div>
+                            <div><strong>12/20-21 場次：</strong> ${sessionTextMap[item.session2] || item.session2}</div>
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold text-slate-700 mb-1">勾選練團時間 (${item.rehearsals ? item.rehearsals.length : 0} 個)：</p>
+                            <div class="flex flex-wrap gap-1">
+                                ${item.rehearsals && item.rehearsals.length > 0 ? item.rehearsals.map(r => `<span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-xs rounded-md border border-emerald-200 font-medium">${escapeHtml(r)}</span>`).join('') : '<span class="text-slate-400 text-xs">無勾選或無法出席練團</span>'}
+                            </div>
+                        </div>
+                        ${item.remarks ? `<div class="text-xs text-slate-600 bg-amber-50/50 p-2.5 rounded-xl border border-amber-100"><strong>備註：</strong> ${escapeHtml(item.remarks)}</div>` : ''}
+                    </div>
+                `).join('');
+
+            } catch (err) {
+                console.error("Error loading submissions:", err);
+                loadingDiv.innerHTML = `<p class="text-red-500 text-sm">載入回覆失敗：${err.message}</p>`;
+            }
+        };
+
+        window.closeAdminModal = function() {
+            document.getElementById('adminModal').classList.add('hidden');
+        };
+
+        function showCustomModal(title, message, type) {
+            const modal = document.getElementById('customModal');
+            const icon = document.getElementById('modalIcon');
+            const titleEl = document.getElementById('modalTitle');
+            const msgEl = document.getElementById('modalMessage');
+
+            titleEl.textContent = title;
+            msgEl.textContent = message;
+
+            if (type === 'success') {
+                icon.className = "w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4 bg-emerald-100 text-emerald-600";
+                icon.innerHTML = `<i class="fa-solid fa-check"></i>`;
+            } else {
+                icon.className = "w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4 bg-red-100 text-red-600";
+                icon.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i>`;
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        window.closeCustomModal = function() {
+            document.getElementById('customModal').classList.add('hidden');
+        };
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+</html>
